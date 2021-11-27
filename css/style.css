@@ -1,0 +1,47 @@
+body {
+  background-image: url("game.jpg");
+  
+}
+h1{
+	font-size: 90px;
+	color: grey;
+	font-style: italic;
+}
+.box{
+
+	height: 150px;
+	width: 100%;
+	border: 2px solid black;
+	font-size: 100px;
+	text-align: center;
+}
+
+.p0{
+  padding: 0px;
+}
+
+.bl-0{
+	border-left: none;
+}
+
+.br-0{
+	border-right: none;
+}
+
+.bt-0{
+  border-top: none;
+}
+
+.bb-0{
+  border-bottom: none;
+}
+
+.game1{
+	 border-color: #bfc9ca; 
+    border:gainsboro solid 2px ;
+    background-color: whitesmoke;
+    border-radius: 6px;
+    margin-left: 42px;
+    width: 500px;
+    height:460px;
+}

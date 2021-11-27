@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel='stylesheet' type='text/css' media='screen' href='css/bootstrap.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/font-awesome.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<title>Game</title>
+    <style type="text/css">
+        .game{
+            margin:0px 75px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+	<div class="row">
+        
+           <div class="col-md-8">
+             <div class="game">
+                 <center><h1> Tic Tac Toe </h1></center>
+                   <div class="game1">
+                     <div class="row">
+                       <div class= "col-md-4 p0">
+                      <div class="box bl-0 bt-0" id="b1">
+                          
+                      </div>
+                       </div>
+                       <div class= "col-md-4 p0">
+                       <div class="box bt-0" id="b2">
+                        
+                       </div>
+                       </div>
+                  
+                      <div class= "col-md-4 p0">
+                     <div class="box br-0 bt-0" id="b3">
+                        
+                     </div>
+                        </div>
+                  
+                     </div>
+                     <div class="row">
+                       <div class= "col-md-4 p0">
+                       <div class="box bl-0" id="b4">
+                        
+                       </div>
+                       </div>
+                       <div class= "col-md-4 p0">
+                       <div class="box" id="b5">
+                        
+                       </div>
+                      </div>
+                  
+                       <div class= "col-md-4 p0">
+                      <div class="box br-0" id="b6">
+                        
+                      </div>
+                     </div>
+                   
+                     </div>
+
+                     <div class="row">
+                       <div class= "col-md-4 p0">
+                          <div class="box bb-0 bl-0" id="b7">
+                        
+                        </div>
+                       </div>
+                       <div class= "col-md-4 p0">
+                       <div class="box bb-0" id="b8">
+                        
+                       </div>
+                       </div>
+                  
+                       <div class= "col-md-4 p0">
+                       <div class="box bb-0 br-0" id="b9">
+                        
+                       </div>
+                       </div>
+                    </div>
+                   </div>
+                   <br>
+                   <button id="play" type="reset" class="btn btn-block btn-success">Play Again</button>
+             </div>
+          </div>   
+          
+                 <div class="col-md-4">
+                    <br><br>
+                    <br><br>
+                    <br>
+                   <h3 class="text-center">PLAYER 1 Vs PLAYER 2</h3>
+                   <hr>
+
+                   <h4 id="screen" style="color: black;">
+                     PLAYER 1 TURN 
+                   </h4>
+
+                   <center><h2 id="winner" style="color: black;"></h2></center>
+                   <img src="image/winner.gif" style="display: none;" id="img" class="img-fluid">
+                   <hr>
+                  <button id="reset" type="reset" class="btn btn-block btn-warning">Reset</button>
+               </div>
+         </div>
+   </div>      
+   
+
+</body>
+
+<script>
+
+
+$(document).ready(function(){     
+       
+var turn = 1;
+ 
+$(".box").click(function() {
+    if(turn == 1) {
+        $("#screen").text("PLAYER 2 TURN ");
+  
+    
+    $(this).text("X");
+
+        turn = 2;
+        checkWinner();           
+    }
+    else {   
+        $("#screen").text("PLAYER 1 TURN ");
+      
+      
+        $(this).text("O");
+        turn = 1;
+        checkWinner();  
+    }
+    
+});
+
+ function checkWinner(){
+        var b1 = $("#b1").text();
+        var b2 = $("#b2").text();
+        var b3 = $("#b3").text();
+        var b4 = $("#b4").text();
+        var b5 = $("#b5").text();
+        var b6 = $("#b6").text();
+        var b7 = $("#b7").text();
+        var b8 = $("#b8").text();
+        var b9 = $("#b9").text();
+       
+        if(b1 == "X" && b2 == "X" && b3 == "X"){
+        
+            $("#winner").text("Player1 is winner");
+            $("#winner").css("display","block");
+            $("#screen").css("display","none");
+            $("#img").css("display","block");
+        }
+
+        if( b1 == "O" && b2 == "O" && b3 == "O"){
+           $("#winner").text("Player1 is winner");
+           $("#winner").css("display","block");
+           $("#screen").css("display","none"); 
+           $("#img").css("display","block");
+
+        }
+
+         if(b4 == "X" && b5 == "X" && b6 == "X"){
+        
+            $("#winner").text("Player1 is winner");
+            $("#winner").css("display","block");
+            $("#screen").css("display","none");
+        }
+
+        if( b4 == "O" && b5 == "O" && b6 == "O"){
+           $("#winner").text("Player1 is winner");
+           $("#winner").css("display","block");
+           $("#screen").css("display","none"); 
+           $("#img").css("display","block");
+
+        }
+
+        if(b7 == "X" && b8 == "X" && b9 == "X"){
+        
+            $("#winner").text("Player1 is winner");
+            $("#winner").css("display","block");
+            $("#screen").css("display","none");
+            $("#img").css("display","block");
+        }
+
+        if( b7 == "O" && b8 == "O" && b9 == "O"){
+           $("#winner").text("Player1 is winner");
+           $("#winner").css("display","block");
+           $("#screen").css("display","none"); 
+           $("#img").css("display","block");
+
+        }
+
+         if(b1 == "X" && b4 == "X" && b7 == "X"){
+        
+            $("#winner").text("Player1 is winner");
+            $("#winner").css("display","block");
+            $("#screen").css("display","none");
+            $("#img").css("display","block");
+        }
+
+        if( b1 == "O" && b4 == "O" && b7 == "O"){
+           $("#winner").text("Player1 is winner");
+           $("#winner").css("display","block");
+           $("#screen").css("display","none"); 
+           $("#img").css("display","block");
+
+        }
+
+         if(b2 == "X" && b5 == "X" && b8 == "X"){
+        
+            $("#winner").text("Player1 is winner");
+            $("#winner").css("display","block");
+            $("#screen").css("display","none");
+            $("#img").css("display","block");
+        }
+
+        if( b2 == "O" && b5 == "O" && b8 == "O"){
+           $("#winner").text("Player1 is winner");
+           $("#winner").css("display","block");
+           $("#screen").css("display","none"); 
+           $("#img").css("display","block");
+
+        }
+         
+         if(b3 == "X" && b6 == "X" && b9 == "X"){
+        
+            $("#winner").text("Player1 is winner");
+            $("#winner").css("display","block");
+            $("#screen").css("display","none");
+            $("#img").css("display","block");
+        }
+
+        if( b3 == "O" && b6 == "O" && b9 == "O"){
+           $("#winner").text("Player1 is winner");
+           $("#winner").css("display","block");
+           $("#screen").css("display","none"); 
+           $("#img").css("display","block");
+
+        }
+
+         if(b1 == "X" && b5 == "X" && b9 == "X"){
+        
+            $("#winner").text("Player1 is winner");
+            $("#winner").css("display","block");
+            $("#screen").css("display","none");
+            $("#img").css("display","block");
+        }
+
+        if( b1 == "O" && b5 == "O" && b9 == "O"){
+           $("#winner").text("Player1 is winner");
+           $("#winner").css("display","block");
+           $("#screen").css("display","none"); 
+           $("#img").css("display","block");
+
+        }
+
+         if(b3 == "X" && b5 == "X" && b7 == "X"){
+        
+            $("#winner").text("Player1 is winner");
+            $("#winner").css("display","block");
+            $("#screen").css("display","none");
+            $("#img").css("display","block");
+        }
+
+        if( b3 == "O" && b5 == "O" && b7 == "O"){
+           $("#winner").text("Player1 is winner");
+           $("#winner").css("display","block");
+           $("#screen").css("display","none"); 
+           $("#img").css("display","block");
+
+        }
+
+
+
+      
+    }
+});
+$("#reset").click(function(){
+      $(".box").text("");
+       $("#winner").css("display","none");
+       $("#screen").css("display","block"); 
+       $("#screen").text("PLAYER 1 TURN");
+       $("#img").css("display","none"); 
+
+});
+
+
+$("#play").click(function(){
+      $(".box").text("");
+       $("#winner").css("display","none");
+       $("#screen").css("display","block"); 
+       $("#screen").text("PLAYER 1 TURN");
+       $("#img").css("display","none"); 
+
+});
+
+
+</script>
+
+       
+</script>
+
+
+</html>
